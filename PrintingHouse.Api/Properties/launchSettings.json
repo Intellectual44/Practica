@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "API (отдельный запуск)": {
+      "commandName": "Project",
+      "applicationUrl": "https://localhost:7142",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
