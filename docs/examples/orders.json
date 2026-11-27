@@ -1,0 +1,22 @@
+[
+  {
+    "id": 4,
+    "customerId": 1,
+    "customer": "Музей «Городская история»",
+    "phone": "+7 000 012-01-03",
+    "title": "Брошюра «Городские маршруты»",
+    "specification": "А5 · 24 полосы · скрепка",
+    "notes": "Проверить контрольный оттиск",
+    "printerId": 3,
+    "printer": "Илья Крылов",
+    "status": "Issued",
+    "amount": 32400,
+    "dueDate": "2026-11-27",
+    "cancellationReason": null,
+    "createdAt": "2026-11-23T09:00:00Z",
+    "completedAt": "2026-11-27T12:00:00Z",
+    "version": 6,
+    "quantity": 600,
+    "layoutReference": "routes-final.pdf"
+  }
+]

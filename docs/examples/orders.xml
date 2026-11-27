@@ -1,0 +1,22 @@
+<Orders>
+  <Order>
+    <Id>4</Id>
+    <CustomerId>1</CustomerId>
+    <Customer>Музей «Городская история»</Customer>
+    <Phone>+7 000 012-01-03</Phone>
+    <Title>Брошюра «Городские маршруты»</Title>
+    <Specification>А5 · 24 полосы · скрепка</Specification>
+    <Notes>Проверить контрольный оттиск</Notes>
+    <PrinterId>3</PrinterId>
+    <Printer>Илья Крылов</Printer>
+    <Status>Issued</Status>
+    <Amount>32400</Amount>
+    <DueDate>2026-11-27</DueDate>
+    <CancellationReason />
+    <CreatedAt>2026-11-23T09:00:00.0000000Z</CreatedAt>
+    <CompletedAt>2026-11-27T12:00:00.0000000Z</CompletedAt>
+    <Version>6</Version>
+    <Quantity>600</Quantity>
+    <LayoutReference>routes-final.pdf</LayoutReference>
+  </Order>
+</Orders>

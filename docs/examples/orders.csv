@@ -1,0 +1,2 @@
+﻿Id;CustomerId;Customer;Phone;Title;Specification;Notes;PrinterId;Printer;Status;Amount;DueDate;CancellationReason;CreatedAt;CompletedAt;Version;Quantity;LayoutReference
+"4";"1";"Музей «Городская история»";"'+7 000 012-01-03";"Брошюра «Городские маршруты»";"А5 · 24 полосы · скрепка";"Проверить контрольный оттиск";"3";"Илья Крылов";"Issued";"32400";"2026-11-27";"";"2026-11-23T09:00:00.0000000Z";"2026-11-27T12:00:00.0000000Z";"6";"600";"routes-final.pdf"
