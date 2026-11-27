@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Жизненный цикл заказа">
+    <mxGraphModel page="1" pageWidth="1132" pageHeight="363">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Жизненный цикл заказа" style="text;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;fontColor=#132547;" vertex="1" parent="1">
+          <mxGeometry x="28" y="16" width="1076" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="accept" value="Принят" style="rounded=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#93A9D0;fontColor=#132547;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="28" y="124" width="126" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="layout" value="Макет" style="rounded=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#93A9D0;fontColor=#132547;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="218" y="124" width="126" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="approve" value="Согласован" style="rounded=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#93A9D0;fontColor=#132547;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="408" y="124" width="126" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="print" value="Печать" style="rounded=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#93A9D0;fontColor=#132547;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="598" y="124" width="126" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ready" value="Готов" style="rounded=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#93A9D0;fontColor=#132547;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="788" y="124" width="126" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="issue" value="Выдан" style="rounded=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#93A9D0;fontColor=#132547;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="978" y="124" width="126" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cancel" value="Отменён" style="rounded=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#93A9D0;fontColor=#132547;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="496" y="288" width="126" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="edge0" value="Подготовка" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;" edge="1" parent="1" source="accept" target="layout">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge1" value="Макет указан" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;" edge="1" parent="1" source="layout" target="approve">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge2" value="Печатник назначен" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;" edge="1" parent="1" source="approve" target="print">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge3" value="Тираж готов" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;" edge="1" parent="1" source="print" target="ready">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge4" value="Сумма и срок" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;" edge="1" parent="1" source="ready" target="issue">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge5" value="" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;dashed=1;" edge="1" parent="1" source="accept" target="cancel">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="91" y="215" />
+              <mxPoint x="512" y="215" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge6" value="" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;dashed=1;" edge="1" parent="1" source="layout" target="cancel">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="281" y="215" />
+              <mxPoint x="535" y="215" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge7" value="Указана причина отмены" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;dashed=1;" edge="1" parent="1" source="approve" target="cancel">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="471" y="215" />
+              <mxPoint x="558" y="215" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge8" value="" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;dashed=1;" edge="1" parent="1" source="print" target="cancel">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="661" y="215" />
+              <mxPoint x="581" y="215" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge9" value="" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;dashed=1;" edge="1" parent="1" source="ready" target="cancel">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="851" y="215" />
+              <mxPoint x="604" y="215" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

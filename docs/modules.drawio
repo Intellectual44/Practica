@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Модули типографии">
+    <mxGraphModel page="1" pageWidth="852" pageHeight="315">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Модули типографии" style="text;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;fontColor=#132547;" vertex="1" parent="1">
+          <mxGeometry x="28" y="16" width="796" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="ui" value="Desktop · WPF" style="rounded=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#93A9D0;fontColor=#132547;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="32" y="147" width="172" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="api" value="Api · REST" style="rounded=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#93A9D0;fontColor=#132547;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="339" y="147" width="172" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="data" value="Data · EF Core" style="rounded=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#93A9D0;fontColor=#132547;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="648" y="147" width="172" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="db" value="SQLite" style="rounded=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#93A9D0;fontColor=#132547;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="648" y="242" width="172" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="core" value="Core · правила" style="rounded=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#93A9D0;fontColor=#132547;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="339" y="242" width="172" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="uiTests" value="UiTests · FlaUI" style="rounded=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#93A9D0;fontColor=#132547;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="32" y="65" width="172" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="tests" value="Tests · xUnit" style="rounded=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#93A9D0;fontColor=#132547;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="339" y="65" width="172" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="edge0" value="Desktop.exe" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;dashed=1;" edge="1" parent="1" source="uiTests" target="ui">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge1" value="" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;dashed=1;" edge="1" parent="1" source="tests" target="api">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge2" value="HTTPS / JSON" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;dashed=1;" edge="1" parent="1" source="ui" target="api">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge3" value="" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;dashed=1;" edge="1" parent="1" source="api" target="data">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge4" value="" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;dashed=1;" edge="1" parent="1" source="data" target="db">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge5" value="" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;dashed=1;" edge="1" parent="1" source="api" target="core">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge6" value="" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;dashed=1;" edge="1" parent="1" source="data" target="core">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="572" y="190" />
+              <mxPoint x="572" y="265" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge7" value="" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;dashed=1;" edge="1" parent="1" source="ui" target="core">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="118" y="265" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge8" value="" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;dashed=1;" edge="1" parent="1" source="tests" target="core">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="551" y="90" />
+              <mxPoint x="551" y="225" />
+              <mxPoint x="466" y="225" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

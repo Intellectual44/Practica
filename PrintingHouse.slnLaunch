@@ -1,0 +1,11 @@
+[
+  {
+    "Name": "Типография",
+    "Projects": [
+      {
+        "Path": "PrintingHouse.Desktop\\PrintingHouse.Desktop.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

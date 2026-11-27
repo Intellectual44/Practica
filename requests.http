@@ -1,0 +1,172 @@
+@base = https://localhost:7142
+@admin = paste-admin-jwt
+@manager = paste-manager-jwt
+@printer = paste-printer-jwt
+@login = press.manager
+@password = paste-local-password
+@order = 4
+@orderVersion = 1
+@customer = 1
+@employee = 4
+
+### 200 или 503 — состояние базы
+GET {{base}}/health
+
+### 200 — вход, скопируйте token в переменную выбранной роли
+POST {{base}}/api/auth/login
+Content-Type: application/json
+
+{"login":"{{login}}","password":"{{password}}"}
+
+### 401 — неверный пароль
+POST {{base}}/api/auth/login
+Content-Type: application/json
+
+{"login":"{{login}}","password":"wrong-password"}
+
+### 200 — текущий сотрудник
+GET {{base}}/api/auth/me
+Authorization: Bearer {{manager}}
+
+### 200 — список администратора
+GET {{base}}/api/orders
+Authorization: Bearer {{admin}}
+
+### 200 — фильтр и поиск
+GET {{base}}/api/orders?status=Printing&q=%D0%B1%D1%80%D0%BE%D1%88
+Authorization: Bearer {{manager}}
+
+### 200 — выборка печатника
+GET {{base}}/api/orders
+Authorization: Bearer {{printer}}
+
+### 401 — запрос без токена
+GET {{base}}/api/orders
+
+### 200 — карточка
+GET {{base}}/api/orders/{{order}}
+Authorization: Bearer {{manager}}
+
+### 404 — отсутствующий или чужой заказ
+GET {{base}}/api/orders/9999999
+Authorization: Bearer {{printer}}
+
+### 201 — новый заказ
+POST {{base}}/api/orders
+Authorization: Bearer {{manager}}
+Content-Type: application/json
+
+{"customerId":{{customer}},"title":"Буклет программы","specification":"А5, 8 полос, 4+4","quantity":300,"printerId":3,"layoutReference":"brief.pdf","amount":9600,"dueDate":"2026-12-20"}
+
+### 400 — недопустимый тираж
+POST {{base}}/api/orders
+Authorization: Bearer {{manager}}
+Content-Type: application/json
+
+{"customerId":{{customer}},"title":"Буклет программы","specification":"А5, 8 полос","quantity":0}
+
+### 204 — редактирование знакомой версии
+PUT {{base}}/api/orders/{{order}}
+Authorization: Bearer {{manager}}
+Content-Type: application/json
+
+{"customerId":{{customer}},"title":"Буклет программы","specification":"А5, 8 полос","quantity":300,"printerId":3,"layoutReference":"brief.pdf","amount":9800,"dueDate":"2026-12-20","version":{{orderVersion}}}
+
+### 409 — редактирование с устаревшей версией
+PUT {{base}}/api/orders/{{order}}
+Authorization: Bearer {{manager}}
+Content-Type: application/json
+
+{"customerId":{{customer}},"title":"Буклет программы","specification":"А5, 8 полос","quantity":300,"printerId":3,"layoutReference":"brief.pdf","amount":9800,"version":0}
+
+### 204 — готовность назначенного тиража в печати
+POST {{base}}/api/orders/{{order}}/transition
+Authorization: Bearer {{printer}}
+Content-Type: application/json
+
+{"status":"Ready","reason":null,"version":{{orderVersion}}}
+
+### 200 — статистика
+GET {{base}}/api/orders/statistics
+Authorization: Bearer {{manager}}
+
+### 200 — статистика печатника
+GET {{base}}/api/orders/statistics
+Authorization: Bearer {{printer}}
+
+### 200 — выгрузка CSV
+GET {{base}}/api/orders/export/csv?status=Printing
+Authorization: Bearer {{admin}}
+
+### 200 — выгрузка JSON
+GET {{base}}/api/orders/export/json
+Authorization: Bearer {{manager}}
+
+### 200 — выгрузка XML
+GET {{base}}/api/orders/export/xml
+Authorization: Bearer {{manager}}
+
+### 403 — выгрузка под печатником
+GET {{base}}/api/orders/export/json
+Authorization: Bearer {{printer}}
+
+### 200 — справочник
+GET {{base}}/api/customers
+Authorization: Bearer {{manager}}
+
+### 201 — создание заказчика
+POST {{base}}/api/customers
+Authorization: Bearer {{manager}}
+Content-Type: application/json
+
+{"name":"Книжная студия","phone":"+7 000 012-07-01","email":"book@example.test"}
+
+### 204 — обновление заказчика
+PUT {{base}}/api/customers/{{customer}}
+Authorization: Bearer {{manager}}
+Content-Type: application/json
+
+{"name":"Книжная студия","phone":"+7 000 012-07-02","email":"book@example.test"}
+
+### 200 — импорт
+POST {{base}}/api/customers/import
+Authorization: Bearer {{manager}}
+Content-Type: text/csv; charset=utf-8
+
+Name;Phone;Email
+Редакция Верстка;+7 000 012-10-01;layout@example.test
+
+### 400 — ошибочный импорт
+POST {{base}}/api/customers/import
+Authorization: Bearer {{manager}}
+Content-Type: text/csv; charset=utf-8
+
+Name;Phone;Email
+Редакция Верстка;;wrong
+
+### 200 — сотрудники
+GET {{base}}/api/users
+Authorization: Bearer {{admin}}
+
+### 403 — сотрудники под менеджером
+GET {{base}}/api/users
+Authorization: Bearer {{manager}}
+
+### 200 — печатники для назначения
+GET {{base}}/api/users/printers
+Authorization: Bearer {{manager}}
+
+### 403 — справочник под печатником
+GET {{base}}/api/customers
+Authorization: Bearer {{printer}}
+
+### 204 — изменение доступа
+PUT {{base}}/api/users/{{employee}}/access
+Authorization: Bearer {{admin}}
+Content-Type: application/json
+
+{"isDisabled":true}
+
+### 204 — отзыв токена
+POST {{base}}/api/auth/logout
+Authorization: Bearer {{manager}}
