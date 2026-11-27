@@ -1,0 +1,16 @@
+**/bin/
+**/obj/
+.vs/
+*.suo
+*.user
+TestResults/
+*.trx
+*.db
+*.db-shm
+*.db-wal
+*.log
+exports/
+publish/
+.github-auth/
+.env
+/Комплект УП.02*
