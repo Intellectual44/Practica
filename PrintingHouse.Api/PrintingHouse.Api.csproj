@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <UserSecretsId>PrintingHouse.Api.12variant</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../PrintingHouse.Data/PrintingHouse.Data.csproj" />
+    <ProjectReference Include="../PrintingHouse.Core/PrintingHouse.Core.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="$(MicrosoftStackVersion)" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="$(SwaggerVersion)" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="$(SwaggerVersion)" />
+    <PackageReference Include="Serilog.AspNetCore" Version="$(SerilogAspNetVersion)" />
+    <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/docs/">
+    <File Path="docs/api-spec.md" />
+    <File Path="docs/architecture.md" />
+    <File Path="docs/artifacts.md" />
+    <File Path="docs/requirements.md" />
+  </Folder>
+  <Folder Name="/Элементы решения/">
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="PrintingHouse.Desktop/PrintingHouse.Desktop.csproj" DefaultStartup="true" />
+  <Project Path="PrintingHouse.Api/PrintingHouse.Api.csproj" />
+  <Project Path="PrintingHouse.Core/PrintingHouse.Core.csproj" />
+  <Project Path="PrintingHouse.Data/PrintingHouse.Data.csproj" />
+  <Project Path="PrintingHouse.Tests/PrintingHouse.Tests.csproj" />
+  <Project Path="PrintingHouse.UiTests/PrintingHouse.UiTests.csproj" />
+</Solution>
