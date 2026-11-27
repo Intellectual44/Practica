@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Классы предметной области">
+    <mxGraphModel page="1" pageWidth="890" pageHeight="569">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Классы предметной области" style="text;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;fontColor=#132547;" vertex="1" parent="1">
+          <mxGeometry x="28" y="16" width="834" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="customer" value="Customer&#10;Id: int&#10;Name: string&#10;Phone: string&#10;Email: string" style="rounded=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#93A9D0;fontColor=#132547;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="28" y="73" width="212" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="order" value="PrintOrder&#10;Id: int&#10;Specification: string&#10;Quantity: int&#10;LayoutReference: string?&#10;Status: OrderStatus&#10;DueDate: DateOnly?&#10;Version: int" style="rounded=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#93A9D0;fontColor=#132547;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="318" y="73" width="252" height="217" as="geometry" />
+        </mxCell>
+        <mxCell id="user" value="PrintUser&#10;Id: int&#10;Login: string&#10;Role: string&#10;IsDisabled: bool" style="rounded=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#93A9D0;fontColor=#132547;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="650" y="73" width="212" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="status" value="OrderStatus · enum&#10;Accepted&#10;Layout&#10;Approved&#10;Printing&#10;Ready&#10;Issued&#10;Cancelled" style="rounded=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#93A9D0;fontColor=#132547;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="318" y="340" width="252" height="204" as="geometry" />
+        </mxCell>
+        <mxCell id="role" value="UserRole · enum&#10;Admin&#10;Manager&#10;Printer" style="rounded=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#93A9D0;fontColor=#132547;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="650" y="340" width="212" height="111" as="geometry" />
+        </mxCell>
+        <mxCell id="edge0" value="* → 1" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;" edge="1" parent="1" source="order" target="customer">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge1" value="* → 0..1" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;" edge="1" parent="1" source="order" target="user">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge2" value="" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;dashed=1;" edge="1" parent="1" source="order" target="status">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge3" value="" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;strokeColor=#244CAC;fontColor=#132547;labelBackgroundColor=#F3F6FC;dashed=1;" edge="1" parent="1" source="user" target="role">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

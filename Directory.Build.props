@@ -1,0 +1,26 @@
+<Project>
+  <PropertyGroup>
+    <PrintingHouseLegacy Condition="'$(PrintingHouseLegacy)' == '' and '$(BuildingInsideVisualStudio)' == 'true' and '$(VisualStudioVersion)' == '17.0'">true</PrintingHouseLegacy>
+    <PrintingHouseFramework Condition="'$(PrintingHouseLegacy)' != 'true'">net10.0</PrintingHouseFramework>
+    <PrintingHouseFramework Condition="'$(PrintingHouseLegacy)' == 'true'">net8.0</PrintingHouseFramework>
+    <TargetFramework>$(PrintingHouseFramework)</TargetFramework>
+    <MicrosoftStackVersion Condition="'$(PrintingHouseLegacy)' != 'true'">10.0.13</MicrosoftStackVersion>
+    <MicrosoftStackVersion Condition="'$(PrintingHouseLegacy)' == 'true'">8.0.34</MicrosoftStackVersion>
+    <SerilogAspNetVersion Condition="'$(PrintingHouseLegacy)' != 'true'">10.0.0</SerilogAspNetVersion>
+    <SerilogAspNetVersion Condition="'$(PrintingHouseLegacy)' == 'true'">8.0.3</SerilogAspNetVersion>
+    <SwaggerVersion Condition="'$(PrintingHouseLegacy)' != 'true'">11.0.1</SwaggerVersion>
+    <SwaggerVersion Condition="'$(PrintingHouseLegacy)' == 'true'">6.6.2</SwaggerVersion>
+    <TestSdkVersion Condition="'$(PrintingHouseLegacy)' != 'true'">18.0.1</TestSdkVersion>
+    <TestSdkVersion Condition="'$(PrintingHouseLegacy)' == 'true'">17.11.1</TestSdkVersion>
+    <Product>PrintingHouse</Product>
+    <Version>1.0.0</Version>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <!-- Local Debug builds can run from the package cache without contacting the audit feed. -->
+    <NuGetAudit Condition="'$(NuGetAudit)' == '' and ('$(Configuration)' == '' or '$(Configuration)' == 'Debug') and '$(CI)' != 'true' and '$(ContinuousIntegrationBuild)' != 'true'">false</NuGetAudit>
+    <NuGetAuditMode>all</NuGetAuditMode>
+    <WarningsAsErrors>$(WarningsAsErrors);NU1903;NU1904</WarningsAsErrors>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>$(PrintingHouseFramework)-windows</TargetFramework><OutputType>WinExe</OutputType><UseWPF>true</UseWPF></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../PrintingHouse.Api/PrintingHouse.Api.csproj" />
+    <ProjectReference Include="../PrintingHouse.Core/PrintingHouse.Core.csproj" />
+  </ItemGroup>
+</Project>
